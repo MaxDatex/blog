@@ -10,6 +10,8 @@ const menuitems = [
 ];
 
 const navButton = { href: 'https://github.com/manulthanura/Positivus', label: 'Request a quote' };
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <div class="mt-20">
@@ -18,7 +20,7 @@ const navButton = { href: 'https://github.com/manulthanura/Positivus', label: 'R
       <Astronav>
         <div class="flex w-full lg:w-auto items-center justify-between">
           <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="/Logo.svg" class="h-8" alt="Logo" />
+            <img src="blog/Logo.svg" class="h-8" alt="Logo" />
           </a>
           <div class="block lg:hidden">
             <div id="menu-icon" class="w-8 h-8 text-black cursor-pointer">
