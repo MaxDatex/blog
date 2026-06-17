@@ -5,6 +5,19 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from "astro:content";
 import { capitalize } from "../../../utils";
 
+// 1. Add this function so Astro knows what pages to generate at build time
+export async function getStaticPaths() {
+  const allArticles = await getCollection('blog');
+  
+  // Extract all unique tags across your blog posts
+  const uniqueTags = [...new Set(allArticles.flatMap(article => article.data.tags || []))];
+  
+  // Return paths array mapping to your [...tag] parameter
+  return uniqueTags.map(tag => ({
+    params: { tag: tag }, 
+  }));
+}
+
 const { tag } = Astro.params;
 
 if(tag === undefined) {
