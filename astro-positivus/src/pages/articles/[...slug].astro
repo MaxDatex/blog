@@ -1,40 +1,33 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import Tags from "../../components/ui/Tags.astro";
-import { getEntry } from 'astro:content';
+// 1. Added missing getCollection and CollectionEntry imports
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 import { formatDate } from "../../utils";
 
 import "../../styles/global.css";
 
-// 1. Tell Astro exactly what article pages to build ahead of time
+// 2. Added explicit types so article is not implicitly 'any'
 export async function getStaticPaths() {
-  const allArticles = await getCollection('blog');
+  const allArticles: CollectionEntry<'blog'>[] = await getCollection('blog');
   
-  return allArticles.map(article => ({
-    params: { slug: article.slug }, // matches the [...slug] file name param
-    props: { article }              // passes the article data downward
+  return allArticles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article } // Pass the full article object down as a prop
   }));
 }
 
-// 2. Accept the article object from props
+// 3. Define the structural contract for the incoming props
 interface Props {
   article: CollectionEntry<'blog'>;
 }
 
+// 4. Use Astro.props instead of Astro.params lookup
+const { article } = Astro.props;
 
-const { slug } = Astro.params;
-
-if(slug === undefined) {
-  throw new Error('Slug is required');
-}
-
-const entry = await getEntry('blog', slug);
-
-if(entry === undefined) {
-  return Astro.redirect('/404');
-}
-
-const { Content } = await entry.render();
+// 5. Safely render your content without risking empty 'never' types
+const { Content } = await article.render();
 ---
 
 <MainLayout title="Welcome to My site">
@@ -49,10 +42,11 @@ const { Content } = await entry.render();
                     </svg>
                     <span class="ml-1 font-bold text-lg">All Articles</span>
                   </a>
-                  <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">{entry.data.title}</h2>
-                  <h3 class="text-lg mb-2">Written by {entry.data.author} on {formatDate(entry.data.pubDate)}</h3>
-                  <Tags tags={entry.data.tags} />
-                  <img src={'/blog/' + entry.data.image} alt="Article Image" class="w-full h-auto rounded-xl my-6" />
+                  {/* 6. Changed 'entry' references to 'article' */}
+                  <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">{article.data.title}</h2>
+                  <h3 class="text-lg mb-2">Written by {article.data.author} on {formatDate(article.data.pubDate)}</h3>
+                  <Tags tags={article.data.tags} />
+                  <img src={'/blog/' + article.data.image} alt="Article Image" class="w-full h-auto rounded-xl my-6" />
                   <div class="content">
                     <Content/>
                   </div>
