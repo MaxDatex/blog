@@ -1,5 +1,5 @@
 ---
-title: 'Unleash Creativity With These Cutting-Edge Tablets'
+title: 'Unleash Creativity With These Cutting-Edge Tablets and this is really long'
 pubDate: 2024-01-14
 author: 'Bonnie Green'
 authImage: 'https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png'

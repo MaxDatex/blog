@@ -152,14 +152,10 @@
   background: #555;
 }
 
-/* markdown style */
-.content p {
-  margin: 20px 0;
-  font-size: 1.1rem;
-}
-
-.content h2 {
-  margin: 20px 0;
-  font-size: 1.4rem;
-  font-weight: bold;
+/* markdown style: handled by Tailwind Typography (`prose`) */
+/* center images inside prose and ensure they render as block */
+.prose img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
