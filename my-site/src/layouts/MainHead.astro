@@ -28,4 +28,13 @@ const { title, description, image, frontmatter, robots } = Astro.props;
   />
 
   <!-- Preconnect fonts, images... -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z8H6CNSKDC"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z8H6CNSKDC');
+  </script>
 </head>
