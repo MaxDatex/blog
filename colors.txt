@@ -1,0 +1,73 @@
+# Site Color Palette
+
+--green: #b9ff66
+  Used for accents, highlights, and hover states on buttons.
+
+--black: rgb(0, 0, 0)
+  Used for primary text, headings, button text, and dark badges.
+
+--dark: #191a23
+  Used for dark button backgrounds and dark section elements.
+
+--gray: #f3f3f3
+  Used for light gray backgrounds and neutral surfaces.
+
+--white: #ffffff
+  Used for page background, white buttons, and light elements.
+
+Other shades in CSS:
+
+#f1f1f1
+  Used for the custom scrollbar track background.
+
+#000000
+  Used for the custom scrollbar thumb and default black text.
+
+#555555
+  Used for the custom scrollbar thumb hover state.
+
+
+
+  :root {
+  --green: #c3bef0; /* Periwinkle/Lavender */
+  --black: #1a1921; /* Midnight Ink */
+  --dark: #2e2b38;  /* Dusk Violet */
+  --gray: #e2e0eb;  /* Muted Lavender-Gray */
+  --white: #edeef5; /* Chalky Lavender Background */
+  }
+
+
+  
+  :root {
+  --green: #a3c9a8; /* Muted Sage Green */
+  --black: #2b2d2f; /* Charcoal (Soft Text) */
+  --dark: #3a473e;  /* Deep Eucalyptus */
+  --gray: #e8e5dc;  /* Light Stone */
+  --white: #f4f1ea; /* Warm Oatmeal Background */
+  }
+
+
+  :root {
+    --green: #ffbfa3;
+    --black: #2c2523;
+    --dark: #4a3f3b;
+    --gray: #e3dac9;
+    --white: #f5efe4;
+  }
+
+  :root {
+  --green: #ff9e80; /* Pastel Coral/Salmon - Perfect for high-CTR buttons */
+  --black: #1c222e; /* Deep Ink Blue - High contrast for scannable copy */
+  --dark: #2a3547;  /* Navy Steel - For dark header blocks or primary sections */
+  --gray: #dbe3eb;  /* Muted Ice-Gray - For testimonial cards and input borders */
+  --white: #edf2f7; /* Soft Ice-Blue Background - Professional and crisp without glare */
+}
+
+
+:root {
+  --green: #bfa6ff; /* Soft Violet/Lavender - Modern automation & creativity vibe */
+  --black: #252131; /* Dark Plum-Black - Soft but distinct readability */
+  --dark: #3c354e;  /* Deep Twilight - Elegant dark buttons or footers */
+  --gray: #e6dfd3;  /* Muted Almond - For secondary structural layout blocks */
+  --white: #f5f0e6; /* Soft Cream Background - Feels human, premium, and editorial */
+}
